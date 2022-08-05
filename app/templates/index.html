@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+
+
+
+  {% block content %}
+
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-2">
+      <h1 class="display-5 fw-bold">BMI Calculator</h1>
+      <p class="col-md-8 fs-5">Body Mass Index calculator gives out the BMI value and categorizes BMI based on provided information from WHO and CDC for both adults and children.</p>
+      <a class="btn btn-primary btn-lg" href="{{url_for('views.calc')}}" role="button">Calculate</a>
+    </div>
+  </div>
+  {% endblock %}

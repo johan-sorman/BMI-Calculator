@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+
+
+
+  {% block content %}
+  
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <h1 class="display-5 fw-bold">BMI Calculator</h1>
+    <div class="container-fluid py-1">
+      <form action="/bmi_calculator" method="POST">
+        <label for="weight" class="form-label">Weight</label>
+        <input type="text" class="form-control" name="weight" placeholder="Enter your weight in kg">
+        <br/>
+        <label for="height" class="form-label">Height</label>
+        <input type="text" class="form-control" name="height"  placeholder="Enter your height in cm">
+        <br/>
+        <button type="submit" class="btn btn-primary mb-3">Calculate</button>
+      </form>
+    </div>
+  
+  {% if bmi %}
+  <div class="col-md-4">
+    <div class="h-100 p-5 bg-white border rounded-6">
+      <p>Your BMI is: <strong>{{ bmi }}</strong></p>
+      <table >
+        <thead>
+          <tr>
+            <th scope="col" style="width: 150px">Category</th>
+            <th scope="col" style="width: 100px">BMI range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Severe Thinness</td>
+            <td>< 16</td>
+          </tr>
+          <tr>
+            <td>Moderate Thinness</td>
+            <td>16-17</td>
+          </tr>
+          <tr>
+            <td>Mild Thinness</td>
+            <td>17 - 18.5</td>
+          </tr>
+          <tr>
+            <td>Normal</td>
+            <td>18.5 - 25</td>
+          </tr>
+          <tr>
+            <td>Overweight</td>
+            <td>25 - 30</td>
+          </tr>
+          <tr>
+            <td>Obese Class I</td>
+            <td>30 - 35</td>
+          </tr>
+          <tr>
+            <td>Obese Class II</td>
+            <td>35 - 40</td>
+          </tr>
+          <tr>
+            <td>Obese Class III</td>
+            <td>> 40</td>
+          </tr>
+        </tbody>
+          </table>
+    </div>
+  </div>
+
+  {% endif %}
+</div>
+  {% endblock %}
