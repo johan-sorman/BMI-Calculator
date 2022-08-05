@@ -22,5 +22,4 @@ def calc():
         w = float(request.form.get('weight'))
         h = float(request.form.get('height'))
         bmi = round(w/((h/100)**2),2)
-
     return render_template('calc.html', bmi=bmi, title="BMI Calculator")

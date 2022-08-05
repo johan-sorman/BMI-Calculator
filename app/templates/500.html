@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+
+
+
+  {% block content %}
+  
+<div class="p-5 mb-4 bg-light rounded-3">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}" alert-dismissible fade show" role="alert">        
+        <h4 class="alert-heading">Internal Server Error (500)</h4>
+        <p>{{ message }}</p>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+</div>
+  {% endblock %}
+
+
+
