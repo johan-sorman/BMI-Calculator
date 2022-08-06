@@ -21,7 +21,7 @@
       {% endif %}
     {% endwith %}
   <!-- </div> -->
-      <form action="/bmi" method="POST">
+      <form action="{{url_for('views.calc')}}" method="POST">
       <div class="row g-6">
         <div class="col w-25">
           <label for="weight" class="form-label w-50">Weight</label>
@@ -61,7 +61,7 @@
     </tr>
     <tr>
       <td>30-39,9</td>
-      <td>Obese</td>
+      <td>Obesity</td>
     </tr>
     <tr>
       <td>&#62; 40</td>

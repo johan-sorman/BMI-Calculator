@@ -14,6 +14,10 @@
     <div class="alert alert-{{ category }}" alert-dismissible fade show w-50" role="alert">        
         <h4 class="alert-heading">Page not found (404)</h4>
         <p>{{ message }}</p>
+        <a class="me-3 py-2 text-blue"  href="{{url_for('views.home')}}" target="_self">Home</a>
+        <br/>
+        <a class="me-3 py-2 text-blue"  href="{{url_for('views.calc')}}" target="_self">BMI Calculator</a>
+        <br/>
       </div>
     {% endfor %}
   {% endif %}
