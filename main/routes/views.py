@@ -31,9 +31,9 @@ def calc():
         elif BMI<=29.9:
             category = "overweight"
         elif BMI<=39.9:
-            category = "obesity"
+            category = "obese"
         else:
-            category = "severe obesity"
-        flash("Your BMI indicates you're at {0}. Your BMI is {1}".format(category, BMI), 'success')
+            category = "severe obese"
+        flash("Your BMI indicates you are {0}. Your BMI is {1}".format(category, BMI), 'success')
 
     return render_template('calc.html', bmi=BMI, title="BMI Calculator")
