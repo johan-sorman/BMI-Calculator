@@ -2,7 +2,7 @@ import sys
 sys.dont_write_bytecode = True
 from os import environ
 from flask import Flask, render_template, flash
-from app.routes.views import views
+from main.routes.views import views
 from .config import load_dotenv
 
 
