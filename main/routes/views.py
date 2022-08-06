@@ -21,17 +21,19 @@ def calc():
     if request.method == 'POST' and 'weight' in request.form and 'height' in request.form:
         w = float(request.form.get('weight'))
         h = float(request.form.get('height'))
-        BMI = round(w/((h/100)**2),2)
+        BMI = round(w/((h/100)**2),1)
 
         ## Set BMI category based on user input ##
         if BMI <= 18.5:
             category = "underweight"
         elif BMI<=24.9:
-            category = "average"
+            category = "normalweight"
         elif BMI<=29.9:
             category = "overweight"
-        else:
+        elif BMI<=39.9:
             category = "obese"
-        flash("Your BMI indicates you are {0}. Your BMI is {1}".format(category, BMI), 'success')
+        else:
+            category = "severe obesity"
+        flash("Your BMI indicates you're at {0}. Your BMI is {1}".format(category, BMI), 'success')
 
     return render_template('calc.html', bmi=BMI, title="BMI Calculator")
