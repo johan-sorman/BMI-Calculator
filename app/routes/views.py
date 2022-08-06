@@ -15,7 +15,7 @@ def home():
     return render_template('index.html', title="Home - BMI Calculator")
 
 ## Render Calculator page ##
-@views.route('/bmi_calculator', methods=['POST', 'GET'])
+@views.route('/bmi', methods=['POST', 'GET'])
 def calc():
     BMI=''
     if request.method == 'POST' and 'weight' in request.form and 'height' in request.form:
