@@ -1,5 +1,5 @@
 # BMI-Calculator
-<h6>Simple BMI Calculator build in Python and Flask.</h6>
+<h6>Simple BMI Calculator build in Python and Flask (html, bootstrap, css).</h6>
 
 # Install
 
