@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+
+
+
+{% block content %}
+
+<div class="p-5 mb-4 bg-light rounded-3">
+  <h1 class="display-5 fw-bold">BMR Calculator</h1>
+  <div class="container-fluid py-1">
+    <!-- <div class="p-5 mb-4 bg-light rounded-3"> -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{category}} alert-dismissible fade show w-50" role="alert">
+      <strong>{{ message }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div class="wrapper">
+      <form>
+
+        <label for="gender" class="form-label">Gender</label>
+        <div class="input-group w-25">
+          <select id="gender-input" class="form-select" aria-label="Default select example" value="">
+            <option value="" disabled selected>Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+    </div>
+    <span style="color:red" class="info"></span>
+    <br />
+    <label for="weight" class="form-label">Weight (kg)</label>
+    <div class="input-group w-25">
+      <input id="weight-input" type="number" class="input form-control" min="0" placeholder="kg">
+    </div>
+    <span style="color:red" class="info"></span>
+    <br />
+    <label for="height" class="form-label">Height (cm)</label>
+    <div class="input-group w-25">
+      <input id="height-input" type="number" class="input form-control" placeholder="cm">
+
+    </div>
+    <span style="color:red" class="info"></span>
+    <br />
+    <label for="age-input" class="form-label">Age</label>
+    <div class="input-group w-25">
+      <input id="age-input" type="number" class="input form-control" min="0" placeholder="Years">
+
+    </div>
+    <span style="color:red" class="info"></span>
+    <br />
+
+    <label for="ratio-input" class="form-label">Activity ratio</label>
+    <div class="input-group w-25">
+      <select id="ratio-input" class="form-select" value="1.2">
+        <option value="1.2">Small or no activity</option>
+        <option value="1.375">Moderate activity (1 - 3 trainings per week)</option>
+        <option value="1.55">Average activity (3 - 5 trainings per week)</option>
+        <option value="1.725">High activity (7 trainings per week)</option>
+        <option value="1.9">High activity and manual labour</option>
+      </select>
+
+    </div>
+    <span style="color:red" class="info"></span>
+    <br />
+
+    <label for="proteins-input" class="form-label">Proteins</label>
+    <div class="input-group w-25">
+      <input id="proteins-input" type="number" class="input form-control" min="1.8" max="2" placeholder="1.8g - 2g">
+
+    </div>
+    <span style="color:red" class="info"></span>
+    <br />
+
+    <label for="fat-input" class="form-label">Fat</label>
+    <div class="input-group w-25">
+      <input id="fat-input" type="number" class="input form-control" min="20" max="30" placeholder="20% - 30%">
+
+    </div>
+    <span style="color:red" class="info"></span>
+    <br />
+
+    <label for="surplus-input" class="label-control">Calorie surplus</label>
+    <div class="input-group w-25">
+      <input id="surplus-input" type="number" class="input form-control" placeholder="kcal">
+
+    </div>
+    <span style="color:red" class="info"></span>
+    <br />
+
+    <button id="submit" class="btn btn-danger w-25">Submit</button>
+    </form>
+
+
+    <br />
+    <br />
+    <!-- <div id="output" class="output hidden">
+      <span class="d-block">BMR:
+        <br />
+        <span id="bmr-output">0</span> kcal</span>
+      <br />
+      <span class="d-block">Proteins:
+        <br />
+        <span id="proteins-output">0</span>g</span>
+      <br />
+      <span class="d-block">Carbs:
+        <br />
+        <span id="carbs-output">0</span>g</span>
+      <br />
+      <span class="d-block">Fat:
+        <br />
+        <span id="fat-output">0</span>g</span>
+    </div> -->
+    <div id="output" class="output hidden">
+    <table class="w-50 table table-bordered bg-white">
+      <thead>
+        <tr>
+          <th><span class="d-block">BMR</span></th>
+          <th><span class="d-block">Proteins</span></th>
+          <th><span class="d-block">Carbs</span></th>
+          <th><span class="d-block">Fat</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span id="bmr-output">0</span> kcal</span></td>
+          <td><span id="proteins-output">0</span> g</span></td>
+          <td><span id="carbs-output">0</span> g</span></td>
+          <td><span id="fat-output">0</span> g</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+    <br />
+</div>
+</div>
+<script src="{{ url_for('static', filename='bmr.js') }}">
+</script>
+
+
+
+{% endblock %}

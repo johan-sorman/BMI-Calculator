@@ -1,3 +1,4 @@
+from asyncio import wait
 from flask import Blueprint, redirect, render_template, request, url_for, flash
 
 ## Register Blueprint ##
@@ -36,4 +37,9 @@ def calc():
             category = "severe obese"
         flash("Your BMI indicates you are {0}. Your BMI is {1}".format(category, BMI), 'success')
 
-    return render_template('calc.html', bmi=BMI, title="BMI Calculator")
+    return render_template('calc.html', title="BMI Calculator")
+
+
+@views.route('/BMR', methods=['POST', 'GET'])
+def bmr():
+    return render_template('bmr.html', title="BMR Calculator")
