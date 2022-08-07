@@ -17,27 +17,27 @@ def home():
 
 ## Render Calculator page ##
 @views.route('/BMI', methods=['POST', 'GET'])
-def calc():
-    BMI=''
-    if request.method == 'POST' and 'weight' in request.form and 'height' in request.form:
-        w = float(request.form.get('weight'))
-        h = float(request.form.get('height'))
-        BMI = round(w/((h/100)**2),1)
+def bmi():
+    # BMI=''
+    # if request.method == 'POST' and 'weight' in request.form and 'height' in request.form:
+    #     w = float(request.form.get('weight'))
+    #     h = float(request.form.get('height'))
+    #     BMI = round(w/((h/100)**2),1)
 
-        ## Set BMI category based on user input ##
-        if BMI <= 18.5:
-            category = "underweight"
-        elif BMI<=24.9:
-            category = "normalweight"
-        elif BMI<=29.9:
-            category = "overweight"
-        elif BMI<=39.9:
-            category = "obese"
-        else:
-            category = "severe obese"
-        flash("Your BMI indicates you are {0}. Your BMI is {1}".format(category, BMI), 'success')
+    #     ## Set BMI category based on user input ##
+    #     if BMI <= 18.5:
+    #         category = "underweight"
+    #     elif BMI<=24.9:
+    #         category = "normalweight"
+    #     elif BMI<=29.9:
+    #         category = "overweight"
+    #     elif BMI<=39.9:
+    #         category = "obese"
+    #     else:
+    #         category = "severe obese"
+    #     flash("Your BMI indicates you are {0}. Your BMI is {1}".format(category, BMI), 'success')
 
-    return render_template('calc.html', title="BMI Calculator")
+    return render_template('bmi.html', title="BMI Calculator")
 
 
 @views.route('/BMR', methods=['POST', 'GET'])

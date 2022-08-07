@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+
+
+
+{% block content %}
+
+<div class="p-5 mb-4 bg-light rounded-3">
+  <h1 class="display-5 fw-bold">BMI Calculator</h1>
+  <div class="container-fluid py-1">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{category}} alert-dismissible fade show w-50" role="alert">
+      <strong>{{ message }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+    <form>
+      <div class="form-group w-50">
+        <label for="weight" class="form-label">Weight (kg)</label>
+        <br />
+        <input type="number" class="form-control" id="weight" placeholder="Enter your weight in kilograms (kg)">
+      </div>
+      <br />
+      <div class="form-group w-50">
+        <label for="ratio-input" class="form-label">Height (cm)</label>
+        <br />
+        <input type="number" class="form-control" id="height" placeholder="Enter your height in centimeters (cm)">
+      </div>
+
+    </form>
+    <br />
+    <div class="alert alert-primary w-50" role="alert" id="bmi">
+      Body Mass Index
+    </div>
+
+
+    <script>
+
+      const height = document.querySelector("#height")
+      const weight = document.querySelector("#weight")
+      const vki = document.querySelector("#vki")
+
+      height.addEventListener('input', vkiHesapla);
+      weight.addEventListener('input', vkiHesapla);
+
+      function vkiHesapla() {
+        h = height.value
+        w = weight.value
+        index = w / (h / 100) ** 2;
+        index = index.toFixed(1)
+
+        if (index <= 18.5) {
+          bmi.innerHTML = "Your BMI indicates you are underweight. <br/> Your BMI is: " + index
+          bmi.setAttribute("class", "alert alert-secondary w-50")
+        } else if (index <= 25) {
+          bmi.innerHTML = "Your BMI indicates you are normalweight. <br/> Your BMI is: " + index
+          bmi.setAttribute("class", "alert alert-success w-50")
+        } else if (index <= 30) {
+          bmi.innerHTML = "Your BMI indicates you are overweight. <br/> Your BMI is: " + index
+          bmi.setAttribute("class", "alert alert-warning w-50")
+        } else if (index <= 39.9) {
+          bmi.innerHTML = "Your BMI indicates you are overweight. <br/> Your BMI is: " + index
+          bmi.setAttribute("class", "alert alert-warning w-50")
+        } else {
+          bmi.innerHTML = "Your BMI indicates you are severe obese. <br/> Your BMI is: " + index
+          bmi.setAttribute("class", "alert alert-danger w-50")
+        }
+      }
+    </script>
+    {% endblock %}

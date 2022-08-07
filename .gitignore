@@ -2,3 +2,4 @@
 app/__pycache__/
 venv/
 __pycache__/app.cpython-310.pyc
+main/templates/calc__old.html
