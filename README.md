@@ -6,4 +6,4 @@
 `pip install -r requirements.txt`
 
 # Demo
-<h6>https://bmi-44.herokuapp.com/</h6>
+<h6><a href="https://bmi-44.herokuapp.com/" target=_blank>https://bmi-44.herokuapp.com</a></h6>
